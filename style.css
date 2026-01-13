@@ -6,11 +6,49 @@ body {
   color: #222;
 }
 
+/* NAVIGATION */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: #c62828;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+}
+
+.logo-container {
+  height: 60px;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+}
+
 /* HERO */
 .hero {
-  background: #c62828 url(''); /* możesz dodać tło zdjęcia sportowego */
+  background: url('images/hero.png') no-repeat center center;
   background-size: cover;
-  background-position: center;
   min-height: 60vh;
   display: flex;
   justify-content: center;
@@ -37,7 +75,7 @@ body {
 
 /* SECTIONS */
 section {
-  padding: 40px 20px;
+  padding: 50px 20px;
   text-align: center;
 }
 
@@ -82,4 +120,15 @@ footer {
   color: #fff;
   padding: 15px;
   font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .services .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-text h1 {
+    font-size: 2em;
+  }
 }
