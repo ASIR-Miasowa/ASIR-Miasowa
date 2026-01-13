@@ -22,8 +22,8 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 5%;
-    background: #c62828;
+    padding: 10px 5%;
+    background: #c62828; /* Czerwień ASIR */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -31,11 +31,15 @@ nav {
 }
 
 .logo-container .logo {
-    height: 100px; 
+    height: 100px; /* Duże, widoczne logo */
     width: auto;
     display: block;
     transition: transform 0.3s;
     filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));
+}
+
+.logo-container .logo:hover {
+    transform: scale(1.05);
 }
 
 .nav-links {
@@ -51,6 +55,7 @@ nav {
     text-decoration: none;
     font-weight: bold;
     font-size: 0.95em;
+    transition: color 0.3s;
 }
 
 .nav-links li a:hover, .nav-links li a.active {
@@ -62,15 +67,22 @@ nav {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
                 url('hero.png') no-repeat center center;
     background-size: cover;
-    height: 60vh;
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
+    padding: 0 20px;
 }
 
-/* --- KAFELKI NA STRONIE GŁÓWNEJ (NAPRAWA WYGLĄDU) --- */
+.hero-text h1 {
+    font-size: clamp(1.8rem, 6vw, 3.5rem);
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+/* --- KAFELKI NA STRONIE GŁÓWNEJ (NAPRAWA) --- */
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -84,8 +96,8 @@ nav {
     padding: 30px;
     width: 320px;
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* To przywraca cień kafelków */
-    border-top: 5px solid #c62828; /* Czerwony pasek na górze kafelka */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-top: 5px solid #c62828;
     text-align: center;
     transition: transform 0.3s;
 }
@@ -99,7 +111,7 @@ nav {
     margin-bottom: 15px;
 }
 
-/* --- GALERIA GRID (DLA KAFELKÓW W GALERII) --- */
+/* --- GALERIA (KAFELKI I ZDJĘCIA) --- */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -140,4 +152,94 @@ a.gallery-item {
     background: rgba(198, 40, 40, 0.9);
     color: white;
     padding: 12px;
-    font-size: 0.9
+    font-size: 0.95em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* --- NAGŁÓWKI PODSTRON --- */
+.subpage-header {
+    background: #c62828;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.btn-outline-white {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: 0.3s;
+    margin-top: 15px;
+}
+
+.btn-outline-white:hover {
+    background: white;
+    color: #c62828;
+}
+
+/* --- KONTAKT I MAPA --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.map-container {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* --- STOPKA --- */
+footer {
+    background: #222;
+    color: #ccc;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* --- RESPONSYWNOŚĆ (POPRAWKA MOBILNA) --- */
+@media (max-width: 992px) {
+    nav {
+        flex-direction: column;
+        padding: 15px 10px;
+    }
+    .nav-links {
+        margin-top: 20px;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo-container .logo {
+        height: 75px; /* Mniejsze logo na bardzo małych ekranach */
+    }
+    .nav-links {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Menu w dwóch kolumnach */
+        width: 100%;
+        gap: 5px;
+    }
+    .nav-links li a {
+        font-size: 0.85em;
+        background: rgba(255, 255, 255, 0.1);
+        display: block;
+        padding: 8px 0;
+        border-radius: 4px;
+    }
+    .card {
+        width: 100%; /* Kafelki na całą szerokość telefonu */
+    }
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
