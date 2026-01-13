@@ -22,8 +22,8 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 5%; /* Zmniejszony pionowy padding dla większego logo */
-    background: #c62828; /* Czerwień ASIR */
+    padding: 5px 5%;
+    background: #c62828;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -31,15 +31,11 @@ nav {
 }
 
 .logo-container .logo {
-    height: 100px; /* Zwiększone logo dla lepszej widoczności */
+    height: 100px; 
     width: auto;
     display: block;
     transition: transform 0.3s;
-    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3)); /* Cień pod logo */
-}
-
-.logo-container .logo:hover {
-    transform: scale(1.05);
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));
 }
 
 .nav-links {
@@ -55,7 +51,6 @@ nav {
     text-decoration: none;
     font-weight: bold;
     font-size: 0.95em;
-    transition: color 0.3s;
 }
 
 .nav-links li a:hover, .nav-links li a.active {
@@ -67,87 +62,82 @@ nav {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
                 url('hero.png') no-repeat center center;
     background-size: cover;
-    height: 80vh;
+    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
-    padding: 0 20px;
 }
 
-.hero-text h1 {
-    font-size: clamp(1.8rem, 6vw, 3.5rem);
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-}
-
-.hero-text p {
-    font-size: clamp(1rem, 3vw, 1.3rem);
-    margin-bottom: 30px;
-}
-
-.hero-btns {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* --- PRZYCISKI --- */
-.btn {
-    background: #c62828;
-    color: white;
-    padding: 12px 28px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: all 0.3s;
-    display: inline-block;
-    border: 2px solid #c62828;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    filter: brightness(1.1);
-}
-
-.btn-outline-white {
-    background: transparent;
-    border: 2px solid white;
-    color: white;
-    text-decoration: none;
-}
-
-.btn-outline-white:hover {
-    background: white;
-    color: #c62828;
-}
-
-.btn-facebook {
-    background: #1877F2;
-    border-color: #1877F2;
-}
-
-/* --- SEKCJE OGÓLNE --- */
-section {
-    padding: 60px 0;
-    text-align: center;
-}
-
-.intro {
-    background-color: #f9f9f9;
-}
-
-.intro h2 {
-    color: #c62828;
-    margin-bottom: 20px;
-}
-
-/* --- KAFELKI / CARDS (Dla strony głównej) --- */
+/* --- KAFELKI NA STRONIE GŁÓWNEJ (NAPRAWA WYGLĄDU) --- */
 .cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 3
+    gap: 30px;
+    padding: 60px 20px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    width: 320px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* To przywraca cień kafelków */
+    border-top: 5px solid #c62828; /* Czerwony pasek na górze kafelka */
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card h3 {
+    color: #c62828;
+    margin-bottom: 15px;
+}
+
+/* --- GALERIA GRID (DLA KAFELKÓW W GALERII) --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px 0;
+}
+
+a.gallery-item {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 250px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item .caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(198, 40, 40, 0.9);
+    color: white;
+    padding: 12px;
+    font-size: 0.9
