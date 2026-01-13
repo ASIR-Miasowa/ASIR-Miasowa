@@ -1,0 +1,85 @@
+/* GLOBAL */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #222;
+}
+
+/* HERO */
+.hero {
+  background: #c62828 url(''); /* możesz dodać tło zdjęcia sportowego */
+  background-size: cover;
+  background-position: center;
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+.hero-text h1 {
+  font-size: 2.8em;
+  margin-bottom: 0.3em;
+}
+.hero-text p {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+.hero .btn {
+  background: white;
+  color: #c62828;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* SECTIONS */
+section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* ABOUT */
+.about {
+  background: #f9f9f9;
+}
+
+/* SERVICES */
+.services .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.services .card {
+  border: 1px solid #eee;
+  padding: 20px;
+  width: 280px;
+  border-radius: 8px;
+  background: #fff;
+}
+.services .card h3 {
+  color: #c62828;
+}
+
+/* CTA */
+.cta {
+  background: #f4f4f4;
+}
+.cta .btn {
+  background: #c62828;
+  color: white;
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* FOOTER */
+footer {
+  background: #222;
+  color: #fff;
+  padding: 15px;
+  font-size: 14px;
+}
