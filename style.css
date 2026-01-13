@@ -114,8 +114,9 @@ nav {
 
 .btn-outline-white {
     background: transparent;
-    border-color: white;
+    border: 2px solid white;
     color: white;
+    text-decoration: none;
 }
 
 .btn-outline-white:hover {
@@ -143,7 +144,7 @@ section {
     margin-bottom: 20px;
 }
 
-/* --- KAFELKI / CARDS --- */
+/* --- KAFELKI / CARDS (Dla strony głównej) --- */
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -193,11 +194,20 @@ section {
     margin-top: 30px;
 }
 
+/* Poprawka: Gallery-item jako link nie może mieć domyślnych stylów linku */
+a.gallery-item {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .gallery-item {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
     height: 250px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
 }
 
 .gallery-item img {
@@ -205,6 +215,13 @@ section {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s;
+    display: block;
+}
+
+/* Efekt najechania na kafelek */
+.gallery-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
 .gallery-item:hover img {
@@ -214,47 +231,14 @@ section {
 .gallery-item .caption {
     position: absolute;
     bottom: 0; left: 0; right: 0;
-    background: rgba(198, 40, 40, 0.85);
+    background: rgba(198, 40, 40, 0.9);
     color: white;
-    padding: 10px;
-    font-size: 0.9em;
-}
-
-/* --- STOPKA --- */
-footer {
-    background: #222;
-    color: #ccc;
-    padding: 40px 20px;
+    padding: 12px;
+    font-size: 0.95em;
+    font-weight: bold;
     text-align: center;
 }
 
-footer a {
-    color: #fff;
-    text-decoration: underline;
-}
-
-/* --- RESPONSYWNOŚĆ --- */
-@media (max-width: 850px) {
-    .nav-links {
-        gap: 10px;
-        font-size: 0.85em;
-    }
-}
-
-@media (max-width: 600px) {
-    nav {
-        flex-direction: column;
-        padding: 15px;
-    }
-    .nav-links {
-        margin-top: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .hero {
-        height: 60vh;
-    }
-}
 /* --- KONTAKT I MAPA --- */
 .contact-grid {
     display: grid;
@@ -279,9 +263,44 @@ footer a {
     overflow: hidden;
 }
 
-/* Responsywność dla urządzeń mobilnych */
+/* --- STOPKA --- */
+footer {
+    background: #222;
+    color: #ccc;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* --- RESPONSYWNOŚĆ --- */
+@media (max-width: 850px) {
+    .nav-links {
+        gap: 10px;
+        font-size: 0.85em;
+    }
+}
+
 @media (max-width: 768px) {
     .contact-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        padding: 15px;
+    }
+    .nav-links {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .hero {
+        height: 60vh;
     }
 }
