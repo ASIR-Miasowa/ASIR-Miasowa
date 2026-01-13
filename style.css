@@ -22,7 +22,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 5%;
+    padding: 5px 5%; /* Zmniejszony pionowy padding dla większego logo */
     background: #c62828; /* Czerwień ASIR */
     position: sticky;
     top: 0;
@@ -31,10 +31,11 @@ nav {
 }
 
 .logo-container .logo {
-    height: 65px;
+    height: 100px; /* Zwiększone logo dla lepszej widoczności */
     width: auto;
     display: block;
     transition: transform 0.3s;
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3)); /* Cień pod logo */
 }
 
 .logo-container .logo:hover {
@@ -149,158 +150,4 @@ section {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
-    padding: 0 20px;
-}
-
-.card {
-    background: white;
-    padding: 30px;
-    width: 320px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    border-top: 5px solid #c62828;
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-}
-
-.card-icon {
-    font-size: 3rem;
-    display: block;
-    margin-bottom: 15px;
-}
-
-.card h3 {
-    color: #c62828;
-    margin-bottom: 15px;
-}
-
-/* --- STYLE DLA PODSTRON (Nagłówki) --- */
-.subpage-header {
-    background: #c62828;
-    color: white;
-    padding: 50px 20px;
-    text-align: center;
-}
-
-/* --- GALERIA GRID --- */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-}
-
-/* Poprawka: Gallery-item jako link nie może mieć domyślnych stylów linku */
-a.gallery-item {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    height: 250px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s;
-    display: block;
-}
-
-/* Efekt najechania na kafelek */
-.gallery-item:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-
-.gallery-item:hover img {
-    transform: scale(1.1);
-}
-
-.gallery-item .caption {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    background: rgba(198, 40, 40, 0.9);
-    color: white;
-    padding: 12px;
-    font-size: 0.95em;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* --- KONTAKT I MAPA --- */
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    text-align: left;
-    margin-top: 20px;
-}
-
-.info-item {
-    margin-bottom: 25px;
-}
-
-.info-item p {
-    margin: 5px 0;
-    font-size: 1.1em;
-}
-
-.map-container {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-/* --- STOPKA --- */
-footer {
-    background: #222;
-    color: #ccc;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-footer a {
-    color: #fff;
-    text-decoration: underline;
-}
-
-/* --- RESPONSYWNOŚĆ --- */
-@media (max-width: 850px) {
-    .nav-links {
-        gap: 10px;
-        font-size: 0.85em;
-    }
-}
-
-@media (max-width: 768px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 600px) {
-    nav {
-        flex-direction: column;
-        padding: 15px;
-    }
-    .nav-links {
-        margin-top: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .hero {
-        height: 60vh;
-    }
-}
+    gap: 3
