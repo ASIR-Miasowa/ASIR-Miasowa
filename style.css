@@ -40,11 +40,21 @@ nav {
     align-items: center !important;
 }
 
-.logo { 
-    height: 100px !important; /* Przywrócenie Twojego rozmiaru logo */
-    width: auto !important; 
-    display: block !important;
+/* Dla komputera */
+.logo {
+    height: 100px !important; /* Zmniejsz do 90px jeśli nadal za duże */
+    width: auto !important;
 }
+
+/* Dla telefonu (wewnątrz @media) */
+@media (max-width: 800px) {
+    .logo {
+        height: 70px !important; 
+    }
+    nav {
+        height: 90px !important;
+    }
+}coś mi
 
 .nav-links { 
     display: flex !important; 
@@ -205,3 +215,21 @@ footer p, footer a { color: #ccc !important; -webkit-text-fill-color: #ccc !impo
     .hero-btns { flex-direction: column; gap: 10px !important; }
     .card, .gallery-item { width: 100%; }
 }
+footer, footer p, footer span, footer div {
+    color: #ccc !important; /* Jasnoszary kolor */
+    -webkit-text-fill-color: #ccc !important;
+}
+/* Wymuszenie czerni w galeriach i podstronach */
+.container h1, .container h2, .container h3, 
+.gallery-section h1, .gallery-section h2, 
+.subpage-header h1 {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+}
+
+/* Specyficznie dla strony Kontakt */
+.contact-grid h2, .contact-grid h3, .contact-grid p {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+}
+
