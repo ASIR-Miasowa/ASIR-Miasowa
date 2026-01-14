@@ -239,3 +239,16 @@ footer a {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
 }
+/* --- ATAK NA OPORNY TEKST W STOPCE --- */
+body > *:last-child, 
+body > *:last-child p, 
+body > *:last-child span,
+body > *:last-child div {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Dodatkowo celujemy bezpośrednio w tekst z datą i gminą */
+p {
+    color: inherit; /* Pozwala dziedziczyć kolor z rodzica, jeśli nie zadziała inaczej */
+}
