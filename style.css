@@ -1,4 +1,4 @@
-/* --- FUNDAMENTY I RESET --- */
+/* --- FUNDAMENTY --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -21,7 +21,7 @@ ul, li { list-style: none !important; }
     padding: 0 20px;
 }
 
-/* --- NAWIGACJA (Białe na czerwonym) --- */
+/* --- NAWIGACJA --- */
 nav {
     display: flex !important;
     justify-content: space-between !important;
@@ -34,16 +34,14 @@ nav {
 }
 
 .logo-container .logo { height: 100px; width: auto; }
-
 .nav-links { display: flex !important; gap: 20px; }
-
 .nav-links li a {
     color: #fff !important;
     text-decoration: none !important;
     font-weight: bold;
 }
 
-/* --- SEKCJA HERO (Przyciski ramki) --- */
+/* --- SEKCJA HERO --- */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
                 url('hero.png') no-repeat center center;
@@ -76,19 +74,14 @@ nav {
     border: 2px solid #fff !important;
     color: #fff !important;
     background: transparent !important;
-    display: inline-block !important;
+    display: inline-block;
 }
 
-.hero-btns .btn:hover {
-    background: #fff !important;
-    color: #c62828 !important;
-}
-
-/* --- NAGŁÓWKI (Zawsze czarne poza sekcją Hero/Nav) --- */
+/* --- NAGŁÓWKI --- */
 h1, h2, h3 { color: #000 !important; margin-bottom: 15px; }
 .subpage-header h1, nav a, .hero-text h1 { color: #fff !important; }
 
-/* --- KAFELKI I GALERIE (NAPRAWA FIOLETOWYCH LINKÓW) --- */
+/* --- KAFELKI I GALERIE - TOTALNA BLOKADA FIOLETU --- */
 .cards, .gallery-grid {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -97,7 +90,6 @@ h1, h2, h3 { color: #000 !important; margin-bottom: 15px; }
     padding: 40px 0;
 }
 
-/* Styl kafelka dla głównej strony i wszystkich galerii */
 .card, .card-link, .gallery-item {
     background: #fff !important;
     width: 320px;
@@ -113,45 +105,46 @@ h1, h2, h3 { color: #000 !important; margin-bottom: 15px; }
     text-decoration: none !important;
 }
 
-/* BLOKADA FIOLETU DLA WSZYSTKICH LINKÓW W KAFELKACH */
-.card a, .card-link, .gallery-item a, 
+/* NAJWAŻNIEJSZA SEKCJA: 
+   Wymuszamy czarny kolor dla linków zwykłych, odwiedzonych, 
+   aktywnych i najechanych myszką.
+*/
+.card a, .card-link, .gallery-item a,
+.card a:link, .card-link:link, .gallery-item a:link,
 .card a:visited, .card-link:visited, .gallery-item a:visited,
-.card h3, .card-link h3, .gallery-item h3 {
+.card a:hover, .card-link:hover, .gallery-item a:hover,
+.card a:active, .card-link:active, .gallery-item a:active {
     color: #000 !important;
     text-decoration: none !important;
 }
 
-/* Specjalny kolor dla Facebooka */
-.facebook-card h3, .facebook-card a h3 {
+/* Specyficzne wymuszenie dla tekstów wewnątrz tych linków */
+.card-link *, .gallery-item a * {
+    color: inherit !important; 
+}
+
+/* Wyjątek dla niebieskiego Facebooka - musi być na końcu, żeby nadpisać powyższe */
+.facebook-card, .facebook-card a, .facebook-card h3, .facebook-card a h3 {
     color: #1877F2 !important;
 }
 
-/* Zdjęcia w galeriach */
+/* --- ZDJĘCIA W GALERII (Dopasowanie bez przycinania) --- */
 .gallery-item img {
     width: 100%;
     height: 250px;
-    object-fit: cover;
+    object-fit: contain !important; 
+    background-color: #fff;
     display: block;
     border-radius: 5px;
     margin-bottom: 10px;
 }
 
-/* --- KONTAKT (Układ pionowy - mapa pod tekstem) --- */
-.contact-grid {
-    display: block !important;
-    margin-bottom: 60px;
-}
-
-.map-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
-}
-
-/* --- STOPKA --- */
+/* --- KONTAKT I STOPKA --- */
+.contact-grid { display: block !important; margin-bottom: 60px; }
+.map-container { width: 100%; max-width: 800px; margin: 20px auto; }
 footer { background: #222; color: #ccc; padding: 40px 20px; margin-top: 40px; }
 
-/* --- MOBILNE (Menu 2 kolumny) --- */
+/* --- MOBILNE --- */
 @media (max-width: 800px) {
     nav { flex-direction: column !important; }
     .logo-container .logo { height: 60px; }
