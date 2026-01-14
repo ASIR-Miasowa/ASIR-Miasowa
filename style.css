@@ -1,4 +1,4 @@
-/* --- RESET I PODSTAWA --- */
+/* --- FUNDAMENTY I RESET --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -16,12 +16,12 @@ body {
 ul, li { list-style: none !important; }
 
 .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* --- NAWIGACJA (PC) --- */
+/* --- NAWIGACJA (Białe na czerwonym) --- */
 nav {
     display: flex !important;
     justify-content: space-between !important;
@@ -43,7 +43,7 @@ nav {
     font-weight: bold;
 }
 
-/* --- SEKCJA HERO (PRZYCISKI WRÓCIŁY) --- */
+/* --- SEKCJA HERO (Przyciski ramki) --- */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
                 url('hero.png') no-repeat center center;
@@ -77,7 +77,6 @@ nav {
     color: #fff !important;
     background: transparent !important;
     display: inline-block !important;
-    transition: 0.3s;
 }
 
 .hero-btns .btn:hover {
@@ -85,29 +84,12 @@ nav {
     color: #c62828 !important;
 }
 
-/* --- NAGŁÓWKI --- */
+/* --- NAGŁÓWKI (Zawsze czarne poza sekcją Hero/Nav) --- */
 h1, h2, h3 { color: #000 !important; margin-bottom: 15px; }
 .subpage-header h1, nav a, .hero-text h1 { color: #fff !important; }
 
-/* --- KONTAKT (UKŁAD PIONOWY - MAPA POD SPODEM) --- */
-.contact-grid {
-    display: block !important; /* Wymuszenie układu jeden pod drugim */
-    margin-bottom: 60px;
-    text-align: center;
-}
-
-.contact-info {
-    margin-bottom: 20px;
-}
-
-.map-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* --- KAFELKI --- */
-.cards {
+/* --- KAFELKI I GALERIE (NAPRAWA FIOLETOWYCH LINKÓW) --- */
+.cards, .gallery-grid {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important; 
@@ -115,7 +97,8 @@ h1, h2, h3 { color: #000 !important; margin-bottom: 15px; }
     padding: 40px 0;
 }
 
-.card, .card-link {
+/* Styl kafelka dla głównej strony i wszystkich galerii */
+.card, .card-link, .gallery-item {
     background: #fff !important;
     width: 320px;
     border-radius: 10px;
@@ -124,42 +107,51 @@ h1, h2, h3 { color: #000 !important; margin-bottom: 15px; }
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    padding: 30px;
+    padding: 15px;
     margin: 10px;
+    transition: 0.3s;
     text-decoration: none !important;
 }
 
-.card h3, .card-link h3, .card p, .card-link p {
+/* BLOKADA FIOLETU DLA WSZYSTKICH LINKÓW W KAFELKACH */
+.card a, .card-link, .gallery-item a, 
+.card a:visited, .card-link:visited, .gallery-item a:visited,
+.card h3, .card-link h3, .gallery-item h3 {
     color: #000 !important;
+    text-decoration: none !important;
 }
 
-/* Facebook niebieski */
-.facebook-card h3 { color: #1877F2 !important; }
-
-/* Wyśrodkowanie kafelka "Zapisz się" */
-.cards .card-link:only-child { margin: 0 auto !important; }
-
-/* --- GALERIA --- */
-.gallery-grid {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 20px;
+/* Specjalny kolor dla Facebooka */
+.facebook-card h3, .facebook-card a h3 {
+    color: #1877F2 !important;
 }
 
+/* Zdjęcia w galeriach */
 .gallery-item img {
     width: 100%;
     height: 250px;
     object-fit: cover;
     display: block;
-    border-top: 5px solid #c62828;
-    border-radius: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* --- KONTAKT (Układ pionowy - mapa pod tekstem) --- */
+.contact-grid {
+    display: block !important;
+    margin-bottom: 60px;
+}
+
+.map-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
 }
 
 /* --- STOPKA --- */
 footer { background: #222; color: #ccc; padding: 40px 20px; margin-top: 40px; }
 
-/* --- RESPONSYWNOŚĆ --- */
+/* --- MOBILNE (Menu 2 kolumny) --- */
 @media (max-width: 800px) {
     nav { flex-direction: column !important; }
     .logo-container .logo { height: 60px; }
@@ -170,5 +162,5 @@ footer { background: #222; color: #ccc; padding: 40px 20px; margin-top: 40px; }
         margin-top: 15px;
     }
     .hero-btns { flex-direction: column; gap: 10px !important; }
-    .card, .card-link { width: 100%; }
+    .card, .card-link, .gallery-item { width: 100%; }
 }
