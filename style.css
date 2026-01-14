@@ -13,6 +13,12 @@ body {
     text-align: center;
 }
 
+/* USUNIĘCIE KROPEK - GLOBALNIE */
+ul, li {
+    list-style: none !important;
+    list-style-type: none !important;
+}
+
 .container {
     max-width: 1100px;
     margin: 0 auto;
@@ -36,19 +42,13 @@ nav {
     width: auto;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
 .nav-links li a {
     color: white !important;
     text-decoration: none;
     font-weight: bold;
 }
 
-/* --- SEKCJA HERO (STRONA GŁÓWNA) --- */
+/* --- SEKCJA HERO --- */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
                 url('hero.png') no-repeat center center;
@@ -66,48 +66,31 @@ nav {
     text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
 }
 
-.hero-btns {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 20px;
-}
-
 .hero-btns .btn {
     padding: 12px 28px;
     text-decoration: none !important;
     font-weight: bold;
     border-radius: 5px;
-    transition: all 0.3s ease;
     display: inline-block;
-    font-size: 1rem;
-}
-
-.btn-outline-white {
-    background: transparent;
     border: 2px solid white;
     color: white !important;
+    transition: 0.3s;
 }
 
-.btn-outline-white:hover {
+.hero-btns .btn:hover {
     background: white;
     color: #c62828 !important;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* --- KAFELKI I GALERIA (CENTRUM I NAPRAWA) --- */
+/* --- KAFELKI I GALERIA --- */
 .cards, .gallery-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: stretch;
     gap: 30px;
     padding: 40px 0;
-    width: 100%;
 }
 
-/* Styl dla kafelków tekstowych i linków-kafelków */
 .card, .card-link, a.gallery-item {
     background: white;
     width: 320px;
@@ -118,75 +101,55 @@ nav {
     color: #333 !important;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Kluczowe: zdjęcie nie wystaje poza kafelek */
-    transition: 0.3s;
+    overflow: hidden;
     margin: 10px auto;
+    transition: 0.3s;
+}
+
+.card-link:visited, .gallery-item:visited {
+    color: #333 !important;
 }
 
 .card:hover, .card-link:hover, a.gallery-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* Specjalna poprawka dla zdjęć w galerii */
+/* Galeria - Naprawa zdjęć */
 a.gallery-item img {
     width: 100%;
-    height: 250px; /* Stała wysokość zdjęcia */
-    object-fit: cover; /* Zdjęcie wypełnia ramkę bez rozciągania */
+    height: 250px;
+    object-fit: cover;
     display: block;
 }
 
-/* Styl dla ikony i opisu w kafelkach tekstowych */
-.card, .card-link {
-    padding: 30px;
-}
+.card, .card-link { padding: 30px; }
 
-.card h3, .card-link h3, .gallery-item .caption {
+/* Kolory tytułów */
+.card h3, .card-link h3 {
     color: #c62828;
     margin: 15px 0;
     font-size: 1.5rem;
-    font-weight: bold;
 }
 
-/* --- TYTUŁY SEKCJI I NAGŁÓWKI --- */
-section h1, section h2 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 20px;
-    margin-top: 20px;
+/* Przywrócenie niebieskiego dla Facebooka */
+.facebook-card h3 {
+    color: #1877F2 !important;
 }
 
-.subpage-header {
-    background: #c62828;
-    color: white;
-    padding: 60px 20px;
-}
+/* --- NAGŁÓWKI I STOPKA --- */
+.subpage-header { background: #c62828; color: white; padding: 60px 20px; }
+.subpage-header h1 { color: white !important; font-size: 3rem; }
 
-.subpage-header h1 {
-    color: white !important;
-    font-size: 3rem;
-}
-
-/* --- STOPKA --- */
 footer {
     background: #222;
     color: #ccc;
     padding: 40px 20px;
-    text-align: center;
     width: 100%;
 }
 
-/* --- RESPONSYWNOŚĆ --- */
+/* --- MOBILNE --- */
 @media (max-width: 800px) {
     nav { flex-direction: column; }
-    .nav-links { 
-        margin-top: 15px; 
-        display: grid; 
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 10px; 
-    }
-    .card, .card-link, a.gallery-item { 
-        width: 100%; 
-        max-width: 100%;
-    }
+    .nav-links { margin-top: 15px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .card, .card-link, a.gallery-item { width: 100%; }
 }
