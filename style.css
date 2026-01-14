@@ -175,3 +175,35 @@ footer {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
+/* --- GLOBALNA NAPRAWA LINKÓW-KAFELKÓW --- */
+
+/* Reset dla wszystkich linków, które mają udawać kafelki */
+a.card, a.card-link, a.gallery-item {
+    text-decoration: none !important; /* Brak podkreślenia */
+    color: inherit !important;        /* Kolor czarny/ciemny zamiast niebieskiego/fioletowego */
+    display: block;
+}
+
+/* Stan po kliknięciu (Visited) - blokujemy fiolet */
+a.card:visited, a.card-link:visited, a.gallery-item:visited {
+    color: inherit !important;
+}
+
+/* Styl dla kafelka Facebooka, aby był spójny */
+.btn-facebook-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-top: 5px solid #1877F2; /* Kolor Facebooka */
+    text-align: center;
+    transition: 0.3s;
+    display: block;
+    text-decoration: none !important;
+    color: #333 !important;
+}
+
+.btn-facebook-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
