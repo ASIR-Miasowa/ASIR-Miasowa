@@ -316,32 +316,69 @@ footer span {
     border-radius: 5px;
     transition: all 0.3s ease;
 }
-
-/* WIDOK MOBILNY - poniżej 800px szerokości ekranu */
+nav {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    position: relative !important; /* Ważne dla poprawnego działania menu pod spodem */
+}
+/* --- WIDOK MOBILNY (Telefony) --- */
 @media (max-width: 800px) {
+    nav {
+        display: flex !important;
+        flex-direction: row !important; /* Wymusza jedną linię */
+        justify-content: space-between !important; /* Rozpycha logo i hamburgera */
+        align-items: center !important;
+        flex-wrap: nowrap !important; /* Zakaz przeskakiwania do nowej linii */
+        padding: 0 15px !important;
+        height: 70px !important;
+        position: relative !important;
+    }
+
     .menu-toggle {
         display: flex !important; /* Pokazuje hamburgera */
+        margin-left: auto !important; /* Pcha go do prawej krawędzi */
     }
 
     .nav-links {
-        display: none !important; /* Ukrywa listę linków */
+        display: none !important; /* Domyślnie ukryte */
         flex-direction: column !important;
-        position: absolute;
-        top: 70px; /* Wysokość Twojego paska nawigacji */
-        left: 0;
-        width: 100%;
-        background-color: #c62828; /* Czerwone tło menu */
-        padding: 20px 0;
-        text-align: center;
-        z-index: 1000;
+        position: absolute !important;
+        top: 70px !important; /* Wysuwa się dokładnie pod paskiem */
+        left: 0 !important;
+        width: 100% !important;
+        background-color: #c62828 !important; /* Czerwone tło menu */
+        padding: 20px 0 !important;
+        z-index: 999 !important;
+        text-align: center !important;
     }
 
-    /* Klasa dodawana przez JavaScript po kliknięciu */
+    /* Wyświetlanie menu po kliknięciu (klasa dodawana przez JS) */
     .nav-links.active {
         display: flex !important;
     }
 
     .nav-links li {
-        margin: 15px 0;
+        margin: 15px 0 !important;
     }
+}
+}
+nav {
+    display: flex !important;
+    flex-direction: row !important; /* Wymusza jedną linię */
+    justify-content: space-between !important; /* Rozpycha elementy na boki */
+    align-items: center !important; /* Centruje je pionowo względem siebie */
+    padding: 10px 20px !important;
+    height: 70px !important; /* Stała wysokość paska dla porządku */
+    background-color: #c62828 !important;
+}
+
+.logo-container {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.logo {
+    height: 50px !important; /* Dopasuj wysokość logo, by nie rozpychało paska */
+    width: auto !important;
 }
