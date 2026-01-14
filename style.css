@@ -157,3 +157,9 @@ footer { background: #222; color: #ccc; padding: 40px 20px; margin-top: 40px; }
     .hero-btns { flex-direction: column; gap: 10px !important; }
     .card, .card-link, .gallery-item { width: 100%; }
 }
+/* Wyśrodkowanie wszystkich nagłówków na stronie */
+h1, h2, h3 {
+    text-align: center !important;
+    display: block !important;
+    width: 100% !important;
+}
