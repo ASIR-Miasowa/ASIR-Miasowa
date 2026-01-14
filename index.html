@@ -26,14 +26,14 @@
     </ul>
 </nav>
 
-<header class="hero">
+<header class="hero" id="dynamic-hero">
     <div class="hero-text">
         <h1>Akademia Sportu i Rekreacji Miąsowa</h1>
         <p>Aktywnie dla lokalnej społeczności od 2020 roku</p>
-      <div class="hero-btns">
-    <a href="kontakt.html" class="btn btn-outline-white">Dołącz do nas</a>
-    <a href="dzialalnosc.html" class="btn btn-outline-white">Nasza działalność</a>
-</div>
+        <div class="hero-btns">
+            <a href="kontakt.html" class="btn btn-outline-white">Dołącz do nas</a>
+            <a href="dzialalnosc.html" class="btn btn-outline-white">Nasza działalność</a>
+        </div>
     </div>
 </header>
 
@@ -79,8 +79,35 @@
         </p>
     </div>
 </footer>
+
+<script>
+    // 1. Lista Twoich zdjęć - upewnij się, że nazwy plików są poprawne
+    const images = [
+        'hero.png',
+        '2025mikolajki2.jpg',
+        'hero3.jpg',
+        'piknik5.jpg',
+        'turniejch8.jpg',
+        'rower4.jpg'
+    ]; 
+
+    let currentIndex = 0;
+    const heroSection = document.getElementById('dynamic-hero');
+
+    function changeBackground() {
+        // Przejdź do kolejnego zdjęcia, po ostatnim wróć do pierwszego
+        currentIndex = (currentIndex + 1) % images.length;
+        
+        // Podmień tło, zachowując przyciemnienie (gradient), aby napisy były czytelne
+        heroSection.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${images[currentIndex]}')`;
+    }
+
+    // Ustawienie czasu zmiany na 5000ms (5 sekund)
+    setInterval(changeBackground, 5000);
+</script>
 </body>
 </html>
+
 
 
 
