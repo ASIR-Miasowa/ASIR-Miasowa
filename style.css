@@ -1,4 +1,4 @@
-/* --- FUNDAMENTY I RESET --- */
+/* --- RESET I PODSTAWA --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,12 +8,11 @@
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: #000; /* Główny tekst czarny */
     background-color: #fff;
     text-align: center;
 }
 
-/* Usunięcie kropek z list */
 ul, li {
     list-style: none !important;
 }
@@ -24,7 +23,7 @@ ul, li {
     padding: 0 20px;
 }
 
-/* --- NAWIGACJA (Gwarancja układu poziomego na PC) --- */
+/* --- NAWIGACJA (Czerwone tło, białe napisy) --- */
 nav {
     display: flex !important;
     justify-content: space-between !important;
@@ -39,7 +38,6 @@ nav {
 .logo-container .logo {
     height: 100px;
     width: auto;
-    transition: height 0.3s;
 }
 
 .nav-links {
@@ -49,12 +47,12 @@ nav {
 }
 
 .nav-links li a {
-    color: white !important;
+    color: #fff !important; /* Napisy w menu zawsze białe */
     text-decoration: none !important;
     font-weight: bold;
 }
 
-/* --- SEKCJA HERO (DUŻA CZCIONKA) --- */
+/* --- SEKCJA HERO (Białe napisy na zdjęciu) --- */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
                 url('hero.png') no-repeat center center;
@@ -63,21 +61,14 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: #fff;
 }
 
 .hero-text h1 {
     font-size: clamp(2.5rem, 8vw, 4.5rem) !important; 
-    color: white !important;
+    color: #fff !important; /* Napis główny biały */
     text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
     font-weight: bold;
-}
-
-.hero-btns {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 25px;
 }
 
 .hero-btns .btn {
@@ -85,56 +76,65 @@ nav {
     text-decoration: none !important;
     font-weight: bold;
     border-radius: 5px;
-    border: 2px solid white;
-    color: white !important;
+    border: 2px solid #fff;
+    color: #fff !important;
     display: inline-block;
+    transition: 0.3s;
 }
 
-/* --- KAFELKI I CENTROWANIE --- */
+.hero-btns .btn:hover {
+    background: #fff;
+    color: #c62828 !important;
+}
+
+/* --- KAFELKI (Czarno-biała estetyka) --- */
 .cards, .gallery-grid {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important; 
-    align-items: stretch !important;
     gap: 30px;
     padding: 40px 0;
-    width: 100% !important;
 }
 
 .card, .card-link, a.gallery-item {
-    background: white !important;
+    background: #fff !important;
     width: 320px;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    border-top: 5px solid #c62828;
+    border-top: 5px solid #c62828; /* Czerwony pasek akcentowy zostaje */
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     overflow: hidden;
     margin: 10px;
-    transition: 0.3s;
     text-decoration: none !important;
-    color: #333 !important;
 }
 
-/* Wymuszenie środka dla pojedynczego kafelka (np. w O nas) */
+/* Usunięcie fioletu i wymuszenie czarnego tekstu w kafelkach */
+.card, .card-link, .card-link:visited, a.gallery-item, a.gallery-item:visited, .card-link * {
+    text-decoration: none !important;
+    color: #000 !important; /* Wszystkie teksty w kafelkach czarne */
+}
+
+/* Wyjątek: Kolor nagłówków H3 w kafelkach */
+.card h3, .card-link h3 {
+    color: #000 !important; /* Napisy "Piłka nożna", "O nas" itp. czarne */
+    margin: 15px 0;
+    font-size: 1.5rem;
+}
+
+/* Specjalny kolor dla Facebooka */
+.facebook-card h3 {
+    color: #1877F2 !important; /* Tylko Facebook niebieski */
+}
+
+/* Centrowanie pojedynczego kafelka (np. w O nas) */
 .cards .card-link:only-child, .cards .card:only-child {
     margin-left: auto !important;
     margin-right: auto !important;
 }
 
-/* Blokada fioletu i podkreśleń */
-.card-link, .card-link:visited, .card-link:hover, .card-link:active,
-a.gallery-item, a.gallery-item:visited, .card-link * {
-    text-decoration: none !important;
-    color: #333 !important;
-}
-
-/* Kolory tytułów */
-.card h3, .card-link h3 { color: #c62828 !important; margin: 15px 0; font-size: 1.5rem; }
-.facebook-card h3 { color: #1877F2 !important; }
-
-/* Galeria - Zdjęcia */
+/* --- GALERIA I NAGŁÓWKI PODSTRON --- */
 a.gallery-item img {
     width: 100%;
     height: 250px;
@@ -142,42 +142,35 @@ a.gallery-item img {
     display: block;
 }
 
+.subpage-header {
+    background: #c62828;
+    color: #fff;
+    padding: 60px 20px;
+}
+
+.subpage-header h1 {
+    color: #fff !important; /* Napis na czerwonym pasku podstron biały */
+    font-size: 3rem;
+}
+
 /* --- STOPKA --- */
-footer { background: #222; color: #ccc; padding: 40px 20px; width: 100%; }
+footer {
+    background: #222;
+    color: #ccc;
+    padding: 40px 20px;
+}
 
-/* --- POPRAWKA MOBILNA (ŚCIŚNIĘCIE MENU) --- */
+/* --- MOBILNE (Ściśnięte menu 2 kolumny) --- */
 @media (max-width: 800px) {
-    nav {
-        flex-direction: column !important;
-        padding: 10px 2%;
-    }
-
-    .logo-container .logo {
-        height: 60px; /* Zmniejszone logo na telefonie */
-    }
-
+    nav { flex-direction: column !important; padding: 10px 2%; }
+    .logo-container .logo { height: 60px; }
     .nav-links {
-        display: grid !important; /* Układ siatki zamiast pionowej listy */
-        grid-template-columns: repeat(2, 1fr); /* Dwie kolumny obok siebie */
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
         gap: 8px !important;
         margin-top: 10px;
         width: 100%;
     }
-
-    .nav-links li {
-        text-align: center;
-    }
-
-    .nav-links li a {
-        font-size: 0.9rem; /* Nieco mniejsza czcionka w menu */
-        padding: 5px;
-        display: block;
-        background: rgba(255, 255, 255, 0.1); /* Delikatne tło dla czytelności */
-        border-radius: 4px;
-    }
-
-    .card, .card-link, a.gallery-item {
-        width: 100%;
-        margin: 10px 0 !important;
-    }
+    .nav-links li a { font-size: 0.9rem; padding: 5px; display: block; background: rgba(255, 255, 255, 0.1); border-radius: 4px; }
+    .card, .card-link, a.gallery-item { width: 100%; margin: 10px 0 !important; }
 }
