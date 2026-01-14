@@ -120,8 +120,21 @@
     // Zwiększamy czas do 6 sekund, aby zdjęcia zdążyły się wczytać
     setInterval(changeBackground, 6000);
 </script>
+    <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+        // Przełącza klasę "active", która pokazuje/chowa menu
+        navLinks.classList.toggle('active');
+        
+        // Opcjonalna animacja hamburgera (krzyżyk)
+        menuToggle.classList.toggle('open');
+    });
+</script>
 </body>
 </html>
+
 
 
 
