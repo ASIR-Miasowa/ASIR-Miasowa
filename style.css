@@ -222,3 +222,20 @@ footer p, footer a, footer span, footer div {
     .hero-btns { flex-direction: column; gap: 10px !important; }
     .card, .gallery-item { width: 100%; }
 }
+/* --- OSTATECZNA NAPRAWA STOPKI (BIAŁY TEKST) --- */
+footer, 
+footer p, 
+footer span, 
+footer div,
+footer a {
+    color: #ffffff !important; /* Wymuszenie czystej bieli */
+    -webkit-text-fill-color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* Na wypadek gdyby tekst był poza tagiem footer */
+[class*="footer"] p,
+[class*="copyright"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
