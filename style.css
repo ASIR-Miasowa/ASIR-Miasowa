@@ -21,36 +21,77 @@ ul, li { list-style: none !important; }
     padding: 0 20px;
 }
 
-/* --- 2. NAWIGACJA (Białe napisy na czerwonym) --- */
+/* --- 2. NAWIGACJA (LOGO I HAMBURGER W JEDNEJ LINII) --- */
 nav {
     display: flex !important;
+    flex-direction: row !important;
     justify-content: space-between !important;
     align-items: center !important;
-    padding: 10px 5%;
-    background: #c62828;
+    padding: 0 5% !important;
+    background: #c62828 !important;
     position: sticky;
     top: 0;
     z-index: 1000;
+    height: 120px !important; /* Wysokość dostosowana do dużego logo */
 }
 
-.logo-container .logo { height: 100px; width: auto; }
-.nav-links { display: flex !important; gap: 20px; }
+.logo-container {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.logo { 
+    height: 100px !important; /* Przywrócenie Twojego rozmiaru logo */
+    width: auto !important; 
+    display: block !important;
+}
+
+.nav-links { 
+    display: flex !important; 
+    gap: 20px; 
+}
+
 .nav-links li a {
     color: #fff !important;
     text-decoration: none !important;
     font-weight: bold;
 }
 
-/* --- 3. SEKCJA HERO --- */
+/* Styl przycisku hamburgera */
+.menu-toggle {
+    display: none; /* Ukryty na komputerze */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 35px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* --- 3. SEKCJA HERO I KARUZELA --- */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                url('hero.png') no-repeat center center;
+    background-color: #000 !important; /* Zapobiega miganiu na szaro */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero.png');
+    background-repeat: no-repeat;
+    background-position: center center;
     background-size: cover;
     height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
+    transition: background-image 1s ease-in-out !important;
 }
 
 .hero-text h1 {
@@ -76,29 +117,19 @@ nav {
     display: inline-block;
 }
 
-/* --- 4. NAGŁÓWKI (Naprawa widoczności) --- */
-
-/* Wszystkie nagłówki na białym tle mają być CZARNE */
-h1, h2, h3, h4, .container p { 
+/* --- 4. NAGŁÓWKI I TEKSTY (Wymuszenie czerni) --- */
+h1, h2, h3, h4, .container p, .container span, .gallery-section h1, .gallery-section h2 { 
     color: #000 !important; 
+    -webkit-text-fill-color: #000 !important;
     margin-bottom: 15px;
-    text-align: center !important;
 }
 
-/* WYJĄTKI: Białe napisy tylko tam, gdzie tło jest czerwone */
-nav a, 
-.hero-text h1, 
-.subpage-header h1 { 
+nav a, .hero-text h1, .subpage-header h1 { 
     color: #fff !important; 
+    -webkit-text-fill-color: #fff !important;
 }
 
-/* Link powrotu do galerii - czarny i bez fioletu */
-.container a {
-    color: #000 !important;
-    text-decoration: none !important;
-}
-
-/* --- 5. KAFELKI I GALERIE (Blokada fioletu) --- */
+/* --- 5. KAFELKI I GALERIE --- */
 .cards, .gallery-grid {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -117,269 +148,60 @@ nav a,
     flex-direction: column !important;
     align-items: center !important;
     padding: 15px;
-    margin: 10px;
     transition: 0.3s;
     text-decoration: none !important;
 }
 
-/* Wymuszenie czerni dla linków w kafelkach (nawet odwiedzonych) */
-.card a, .card-link, .gallery-item a,
-.card a:visited, .card-link:visited, .gallery-item a:visited,
-.card h3, .card-link h3, .gallery-item h3 {
-    color: #000 !important;
-    text-decoration: none !important;
-}
+.card h3, .gallery-item h3, .container a { color: #000 !important; }
+.facebook-card h3 { color: #1877F2 !important; -webkit-text-fill-color: #1877F2 !important; }
 
-/* Facebook niebieski */
-.facebook-card h3, .facebook-card a h3 { color: #1877F2 !important; }
-
-/* --- 6. ZDJĘCIA W GALERII (Bez przycinania) --- */
 .gallery-item img {
     width: 100%;
     height: 250px;
     object-fit: contain !important; 
     background-color: #fff;
     display: block;
-    border-radius: 5px;
     margin-bottom: 10px;
 }
 
-/* --- 7. KONTAKT (Pionowo) --- */
-.contact-grid { display: block !important; margin-bottom: 60px; }
-.map-container { width: 100%; max-width: 800px; margin: 20px auto; }
+/* --- 6. STOPKA --- */
+footer { background: #222; color: #ccc !important; padding: 40px 20px; margin-top: 40px; }
+footer p, footer a { color: #ccc !important; -webkit-text-fill-color: #ccc !important; }
 
-/* --- 8. STOPKA --- */
-footer { background: #222; color: #ccc; padding: 40px 20px; margin-top: 40px; }
-
-/* --- 9. MOBILNE --- */
-@media (max-width: 800px) {
-    nav { flex-direction: column !important; }
-    .logo-container .logo { height: 60px; }
-    .nav-links {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        margin-top: 15px;
-    }
-    .hero-btns { flex-direction: column; gap: 10px !important; }
-    .card, .card-link, .gallery-item { width: 100%; }
-}
-/* --- WYMUSZENIE WIDOCZNOŚCI TYTUŁÓW NA BIAŁYM TLE --- */
-
-/* Celujemy we wszystko, co jest w głównej części strony (container) */
-.container h1, 
-.container h2, 
-.container h3,
-.container p,
-.container span {
-    color: #000000 !important; /* Absolutny czarny */
-    background-color: transparent !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-/* Specyficzna poprawka dla linku "Powrót do galerii" */
-.container a {
-    color: #000000 !important;
-    text-decoration: none !important;
-}
-
-/* Upewnienie się, że emotikony nie znikają */
-.container h2::before,
-.container h2::after {
-    color: #000000 !important;
-}
-/* --- OSTATECZNA BLOKADA DLA TURNIEJE ASIRU I PIKNIK --- */
-
-/* Wymuszenie czerni dla wszystkich h2 i h3 poza nawigacją */
-body h2, 
-body h3, 
-main h2, 
-main h3,
-section h2,
-section h3 {
-    color: #000000 !important;
-    -webkit-text-fill-color: #000000 !important; /* Dla przeglądarek typu Chrome/Safari */
-    text-align: center !important;
-    opacity: 1 !important;
-}
-
-/* Wyłączenie białego koloru, który mógł zostać odziedziczony */
-h2 span, h3 span {
-    color: #000000 !important;
-}
-
-/* Jeśli napisy są linkami (fioletowe/białe) */
-h2 a, h3 a, .gallery-grid a {
-    color: #000000 !important;
-    text-decoration: none !important;
-}
-/* --- OSTATECZNA NAPRAWA WIDOCZNOŚCI DLA PODGALERII --- */
-
-/* 1. Wymuszamy, aby napisy w sekcji "gallery-section" były CZARNE */
-.gallery-section h1, 
-.gallery-section h2, 
-.gallery-section a,
-.gallery-section .caption {
-    color: #000000 !important;
-    -webkit-text-fill-color: #000000 !important;
-    text-decoration: none !important;
-    display: block;
-    margin: 10px auto;
-}
-
-/* 2. Jeśli link "Powrót" jest pod headerem, musi być czarny */
-body > a, 
-.container > a {
-    color: #000000 !important;
-    display: inline-block;
-    padding: 15px;
-    font-weight: bold;
-}
-
-/* 3. Naprawa specyficzna dla Turniejów i Pikniku (blokada białego dziedziczenia) */
-header + .container a,
-header + section a {
-    color: #000000 !important;
-}
-/* 1. Wymuszenie koloru czarnego dla linków powrotu w KAŻDEJ galerii */
-.subpage-header a, 
-header + div a,
-.gallery-section a {
-    color: #000000 !important;
-    -webkit-text-fill-color: #000000 !important; /* Blokada dla Chrome */
-    text-decoration: none !important;
-}
-
-/* 2. Naprawa napisu "Turnieje ASIRU" - jeśli chcesz go mieć na czarno */
-.subpage-header h1 {
-    color: #000000 !important;
-    -webkit-text-fill-color: #000000 !important;
-}
-
-/* 3. Dodatkowa blokada dla stanu "odwiedzone" (to ten fiolet/biel) */
-.subpage-header a:visited, 
-.gallery-section a:visited {
-    color: #000000 !important;
-}
-/* --- POPRAWKA KOLORÓW DLA STOPKI I FACEBOOKA --- */
-
-/* 1. Przywrócenie jasnego koloru w stopce (Footer) */
-footer, 
-footer p, 
-footer a, 
-footer span {
-    color: #ccc !important; /* Szary/jasny kolor na ciemnym tle */
-    -webkit-text-fill-color: #ccc !important;
-    text-decoration: none !important;
-}
-
-/* 2. Przywrócenie niebieskiego koloru dla Facebooka (wszystkie strony) */
-.facebook-card h3, 
-.facebook-card a, 
-.facebook-card a h3,
-[class*="facebook"] h3, 
-[class*="facebook"] a {
-    color: #1877F2 !important; /* Oficjalny niebieski Facebooka */
-    -webkit-text-fill-color: #1877F2 !important;
-}
-
-/* 3. Naprawa przycisku na stronie Aktualności */
-.aktualnosci-btn, 
-[href*="facebook.com"] h3,
-.fb-link {
-    color: #1877F2 !important;
-    -webkit-text-fill-color: #1877F2 !important;
-}
-.hero {
-    /* Zachowaj swoje obecne style dla .hero i dopisz poniższą linię: */
-    transition: background-image 1s ease-in-out !important; 
-}
-/* Styl przycisku hamburgera - domyślnie ukryty */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 25px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 1001;
-}
-
-.menu-toggle span {
-    width: 30px;
-    height: 3px;
-    background-color: white; /* Kolor kresek */
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-nav {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    position: relative !important; /* Ważne dla poprawnego działania menu pod spodem */
-}
-/* --- WIDOK MOBILNY (Telefony) --- */
+/* --- 7. WIDOK MOBILNY (Telefony) --- */
 @media (max-width: 800px) {
     nav {
-        display: flex !important;
-        flex-direction: row !important; /* Wymusza jedną linię */
-        justify-content: space-between !important; /* Rozpycha logo i hamburgera */
-        align-items: center !important;
-        flex-wrap: nowrap !important; /* Zakaz przeskakiwania do nowej linii */
+        height: 90px !important; /* Nieco niższy na telefonie, ale wciąż jedna linia */
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
         padding: 0 15px !important;
-        height: 70px !important;
-        position: relative !important;
+    }
+
+    .logo { 
+        height: 70px !important; /* Skalowanie logo dla telefonów */
     }
 
     .menu-toggle {
         display: flex !important; /* Pokazuje hamburgera */
-        margin-left: auto !important; /* Pcha go do prawej krawędzi */
     }
 
     .nav-links {
-        display: none !important; /* Domyślnie ukryte */
+        display: none !important; /* Ukrywa listę */
         flex-direction: column !important;
         position: absolute !important;
-        top: 70px !important; /* Wysuwa się dokładnie pod paskiem */
+        top: 90px !important; /* Dokładnie pod paskiem nav */
         left: 0 !important;
         width: 100% !important;
-        background-color: #c62828 !important; /* Czerwone tło menu */
+        background-color: #c62828 !important;
         padding: 20px 0 !important;
         z-index: 999 !important;
-        text-align: center !important;
     }
 
-    /* Wyświetlanie menu po kliknięciu (klasa dodawana przez JS) */
     .nav-links.active {
         display: flex !important;
     }
 
-    .nav-links li {
-        margin: 15px 0 !important;
-    }
+    .nav-links li { margin: 15px 0 !important; }
+    .hero-btns { flex-direction: column; gap: 10px !important; }
+    .card, .gallery-item { width: 100%; }
 }
-}
-nav {
-    display: flex !important;
-    flex-direction: row !important; /* Wymusza jedną linię */
-    justify-content: space-between !important; /* Rozpycha elementy na boki */
-    align-items: center !important; /* Centruje je pionowo względem siebie */
-    padding: 10px 20px !important;
-    height: 70px !important; /* Stała wysokość paska dla porządku */
-    background-color: #c62828 !important;
-}
-
-.logo-container {
-    display: flex !important;
-    align-items: center !important;
-}
-
-.logo {
-    height: 50px !important; /* Dopasuj wysokość logo, by nie rozpychało paska */
-    width: auto !important;
-}
-
