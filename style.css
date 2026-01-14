@@ -10,6 +10,7 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #fff;
+    text-align: center; /* Przywraca centrowanie tekstu na całej stronie */
 }
 
 .container {
@@ -28,14 +29,12 @@ nav {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 .logo-container .logo {
     height: 100px;
     width: auto;
     display: block;
-    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));
 }
 
 .nav-links {
@@ -48,14 +47,9 @@ nav {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 0.95em;
 }
 
-.nav-links li a:hover, .nav-links li a.active {
-    color: #ffcdd2;
-}
-
-/* --- SEKCJA HERO (NAPRAWA NAPISU) --- */
+/* --- SEKCJA HERO --- */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
                 url('hero.png') no-repeat center center;
@@ -64,68 +58,72 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     color: white;
 }
 
-.hero-text h1 {
-    font-size: clamp(2rem, 8vw, 3.5rem);
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-}
-
-.hero-btns {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-}
-
-/* --- PRZYCISKI --- */
-.btn {
-    padding: 12px 25px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    display: inline-block;
-    transition: 0.3s;
-}
-
-.btn-red {
-    background: #c62828;
-    color: white;
-}
-
-.btn-outline-white {
-    border: 2px solid white;
-    color: white;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    filter: brightness(1.2);
-}
-
-/* --- KAFELKI STRONY GŁÓWNEJ --- */
-section { padding: 60px 0; text-align: center; }
-
+/* --- KAFELKI (STRONA GŁÓWNA I INNE) --- */
 .cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
-    margin-top: 40px;
+    padding: 40px 0;
 }
 
-.card {
+/* Punkt 2: Naprawa kafelka "Dołącz do nas" */
+.card, .card-link {
     background: white;
     padding: 30px;
     width: 320px;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     border-top: 5px solid #c62828;
+    text-decoration: none; /* Usuwa fioletowy kolor linku */
+    color: inherit;
+    display: block;
+    transition: 0.3s;
 }
 
-.card h3 { color: #c62828; margin-bottom: 15px; }
+.card:hover, .card-link:hover {
+    transform: translateY(-10px);
+}
+
+/* --- NAGŁÓWKI PODSTRON (Punkt 3 - Czcionka) --- */
+.subpage-header {
+    background: #c62828;
+    color: white;
+    padding: 60px 20px;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Spójna czcionka */
+}
+
+/* --- USUNIĘCIE KROPEK Z LIST (Punkt 3) --- */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* --- KONTAKT I DZIAŁALNOŚĆ (Punkt 3 i 4 - Wyśrodkowanie) --- */
+section {
+    padding: 60px 0;
+}
+
+h2, h1 {
+    margin-bottom: 20px;
+    color: #c62828;
+}
+
+/* --- STOPKA (Punkt 1 - Wyśrodkowanie) --- */
+footer {
+    background: #222;
+    color: #ccc;
+    padding: 40px 20px;
+    text-align: center; /* Centrowanie dolnego napisu */
+}
+
+footer a {
+    color: white;
+    text-decoration: underline;
+}
 
 /* --- GALERIA GRID --- */
 .gallery-grid {
@@ -159,16 +157,9 @@ section { padding: 60px 0; text-align: center; }
     font-weight: bold;
 }
 
-/* --- RESPONSYWNOŚĆ --- */
+/* --- RESPONSYWNOŚĆ MOBILNA --- */
 @media (max-width: 800px) {
-    nav { flex-direction: column; padding: 15px; }
-    .nav-links { 
-        margin-top: 15px; 
-        display: grid; 
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 10px; 
-        width: 100%;
-    }
-    .nav-links a { font-size: 0.8em; text-align: center; background: rgba(0,0,0,0.1); padding: 5px; border-radius: 3px; }
-    .card { width: 100%; }
+    nav { flex-direction: column; }
+    .nav-links { margin-top: 15px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .card, .card-link { width: 100%; }
 }
