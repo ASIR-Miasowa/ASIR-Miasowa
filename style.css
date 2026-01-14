@@ -164,3 +164,28 @@ footer { background: #222; color: #ccc; padding: 40px 20px; margin-top: 40px; }
     .hero-btns { flex-direction: column; gap: 10px !important; }
     .card, .card-link, .gallery-item { width: 100%; }
 }
+/* --- WYMUSZENIE WIDOCZNOŚCI TYTUŁÓW NA BIAŁYM TLE --- */
+
+/* Celujemy we wszystko, co jest w głównej części strony (container) */
+.container h1, 
+.container h2, 
+.container h3,
+.container p,
+.container span {
+    color: #000000 !important; /* Absolutny czarny */
+    background-color: transparent !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Specyficzna poprawka dla linku "Powrót do galerii" */
+.container a {
+    color: #000000 !important;
+    text-decoration: none !important;
+}
+
+/* Upewnienie się, że emotikony nie znikają */
+.container h2::before,
+.container h2::after {
+    color: #000000 !important;
+}
