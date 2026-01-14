@@ -236,3 +236,22 @@ a.card-link, a.btn, a.btn-outline-white {
     align-items: center;
     justify-content: center;
 }
+/* --- POPRAWKA CENTROWANIA KAFELKÓW --- */
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centruje kafelki w poziomie */
+    align-items: center;     /* Centruje kafelki w pionie (opcjonalnie) */
+    gap: 30px;
+    padding: 40px 0;
+    width: 100%;             /* Kontener musi zajmować całą szerokość */
+}
+
+/* Dodatkowe zabezpieczenie dla pojedynczego kafelka */
+.card, .card-link {
+    margin: 10px auto;       /* Automatyczne marginesy boczne centrują element */
+    display: block;
+    max-width: 320px;        /* Stała szerokość kafelka */
+    text-align: center;
+}
