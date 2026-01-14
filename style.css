@@ -207,3 +207,32 @@ a.card:visited, a.card-link:visited, a.gallery-item:visited {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
+/* --- GLOBALNY RESET LINKÓW-KAFELKÓW --- */
+a.card-link, a.btn, a.btn-outline-white {
+    text-decoration: none !important; /* Usuwa podkreślenie */
+    color: inherit !important;        /* Blokuje fioletowy kolor */
+}
+
+/* Styl dla białych przycisków na zdjęciu głównym */
+.btn-outline-white {
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white !important;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-outline-white:hover {
+    background: white;
+    color: #c62828 !important;
+}
+
+/* Centrowanie tekstów w kafelkach */
+.card, .card-link {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
