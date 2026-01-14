@@ -1,4 +1,4 @@
-/* --- FUNDAMENTY --- */
+/* --- 1. RESET I PODSTAWA --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -21,7 +21,7 @@ ul, li { list-style: none !important; }
     padding: 0 20px;
 }
 
-/* --- NAWIGACJA --- */
+/* --- 2. NAWIGACJA (Białe napisy na czerwonym) --- */
 nav {
     display: flex !important;
     justify-content: space-between !important;
@@ -41,7 +41,7 @@ nav {
     font-weight: bold;
 }
 
-/* --- SEKCJA HERO --- */
+/* --- 3. SEKCJA HERO --- */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
                 url('hero.png') no-repeat center center;
@@ -70,18 +70,35 @@ nav {
     padding: 12px 28px !important;
     text-decoration: none !important;
     font-weight: bold !important;
-    border-radius: 5px !important;
     border: 2px solid #fff !important;
     color: #fff !important;
     background: transparent !important;
     display: inline-block;
 }
 
-/* --- NAGŁÓWKI --- */
-h1, h2, h3 { color: #000 !important; margin-bottom: 15px; }
-.subpage-header h1, nav a, .hero-text h1 { color: #fff !important; }
+/* --- 4. NAGŁÓWKI (Naprawa widoczności) --- */
 
-/* --- KAFELKI I GALERIE - TOTALNA BLOKADA FIOLETU --- */
+/* Wszystkie nagłówki na białym tle mają być CZARNE */
+h1, h2, h3, h4, .container p { 
+    color: #000 !important; 
+    margin-bottom: 15px;
+    text-align: center !important;
+}
+
+/* WYJĄTKI: Białe napisy tylko tam, gdzie tło jest czerwone */
+nav a, 
+.hero-text h1, 
+.subpage-header h1 { 
+    color: #fff !important; 
+}
+
+/* Link powrotu do galerii - czarny i bez fioletu */
+.container a {
+    color: #000 !important;
+    text-decoration: none !important;
+}
+
+/* --- 5. KAFELKI I GALERIE (Blokada fioletu) --- */
 .cards, .gallery-grid {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -105,30 +122,18 @@ h1, h2, h3 { color: #000 !important; margin-bottom: 15px; }
     text-decoration: none !important;
 }
 
-/* NAJWAŻNIEJSZA SEKCJA: 
-   Wymuszamy czarny kolor dla linków zwykłych, odwiedzonych, 
-   aktywnych i najechanych myszką.
-*/
+/* Wymuszenie czerni dla linków w kafelkach (nawet odwiedzonych) */
 .card a, .card-link, .gallery-item a,
-.card a:link, .card-link:link, .gallery-item a:link,
 .card a:visited, .card-link:visited, .gallery-item a:visited,
-.card a:hover, .card-link:hover, .gallery-item a:hover,
-.card a:active, .card-link:active, .gallery-item a:active {
+.card h3, .card-link h3, .gallery-item h3 {
     color: #000 !important;
     text-decoration: none !important;
 }
 
-/* Specyficzne wymuszenie dla tekstów wewnątrz tych linków */
-.card-link *, .gallery-item a * {
-    color: inherit !important; 
-}
+/* Facebook niebieski */
+.facebook-card h3, .facebook-card a h3 { color: #1877F2 !important; }
 
-/* Wyjątek dla niebieskiego Facebooka - musi być na końcu, żeby nadpisać powyższe */
-.facebook-card, .facebook-card a, .facebook-card h3, .facebook-card a h3 {
-    color: #1877F2 !important;
-}
-
-/* --- ZDJĘCIA W GALERII (Dopasowanie bez przycinania) --- */
+/* --- 6. ZDJĘCIA W GALERII (Bez przycinania) --- */
 .gallery-item img {
     width: 100%;
     height: 250px;
@@ -139,12 +144,14 @@ h1, h2, h3 { color: #000 !important; margin-bottom: 15px; }
     margin-bottom: 10px;
 }
 
-/* --- KONTAKT I STOPKA --- */
+/* --- 7. KONTAKT (Pionowo) --- */
 .contact-grid { display: block !important; margin-bottom: 60px; }
 .map-container { width: 100%; max-width: 800px; margin: 20px auto; }
+
+/* --- 8. STOPKA --- */
 footer { background: #222; color: #ccc; padding: 40px 20px; margin-top: 40px; }
 
-/* --- MOBILNE --- */
+/* --- 9. MOBILNE --- */
 @media (max-width: 800px) {
     nav { flex-direction: column !important; }
     .logo-container .logo { height: 60px; }
@@ -156,10 +163,4 @@ footer { background: #222; color: #ccc; padding: 40px 20px; margin-top: 40px; }
     }
     .hero-btns { flex-direction: column; gap: 10px !important; }
     .card, .card-link, .gallery-item { width: 100%; }
-}
-/* Wyśrodkowanie wszystkich nagłówków na stronie */
-h1, h2, h3 {
-    text-align: center !important;
-    display: block !important;
-    width: 100% !important;
 }
