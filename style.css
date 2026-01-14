@@ -8,7 +8,7 @@
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
-    color: #333; /* Przywrócenie ciemnego koloru tekstu */
+    color: #333;
     background-color: #fff;
     text-align: center;
 }
@@ -43,7 +43,7 @@ nav {
 }
 
 .nav-links li a {
-    color: white !important; /* Wymuszenie białego koloru w menu */
+    color: white !important;
     text-decoration: none;
     font-weight: bold;
 }
@@ -61,54 +61,101 @@ nav {
 }
 
 .hero-text h1 {
-    font-size: clamp(2.5rem, 8vw, 4rem); /* Duża czcionka jak wcześniej */
-    color: white !important; /* Biały napis */
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    color: white !important;
     text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
 }
 
-/* --- KAFELKI (NAPRAWA FIOLETOWYCH LINKÓW) --- */
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.hero-btns .btn {
+    padding: 12px 28px;
+    text-decoration: none !important;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.btn-outline-white {
+    background: transparent;
+    border: 2px solid white;
+    color: white !important;
+}
+
+.btn-outline-white:hover {
+    background: white;
+    color: #c62828 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* --- KAFELKI I GALERIA (CENTRUM I NAPRAWA) --- */
 .cards, .gallery-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: stretch;
     gap: 30px;
     padding: 40px 0;
+    width: 100%;
 }
 
-/* To sprawia, że linki wyglądają jak kafelki */
+/* Styl dla kafelków tekstowych i linków-kafelków */
 .card, .card-link, a.gallery-item {
     background: white;
-    padding: 30px;
     width: 320px;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     border-top: 5px solid #c62828;
     text-decoration: none !important;
     color: #333 !important;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Kluczowe: zdjęcie nie wystaje poza kafelek */
     transition: 0.3s;
+    margin: 10px auto;
 }
 
-.card:hover, .card-link:hover {
+.card:hover, .card-link:hover, a.gallery-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-.card h3 {
-    color: #c62828;
-    margin-bottom: 15px;
-    font-size: 1.5rem;
+/* Specjalna poprawka dla zdjęć w galerii */
+a.gallery-item img {
+    width: 100%;
+    height: 250px; /* Stała wysokość zdjęcia */
+    object-fit: cover; /* Zdjęcie wypełnia ramkę bez rozciągania */
+    display: block;
 }
 
-/* --- TYTUŁY SEKCJI (O NAS, DZIAŁALNOŚĆ) --- */
+/* Styl dla ikony i opisu w kafelkach tekstowych */
+.card, .card-link {
+    padding: 30px;
+}
+
+.card h3, .card-link h3, .gallery-item .caption {
+    color: #c62828;
+    margin: 15px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* --- TYTUŁY SEKCJI I NAGŁÓWKI --- */
 section h1, section h2 {
-    font-size: 2.5rem; /* Przywrócenie wielkości */
-    color: #333; /* Przywrócenie czarnego koloru */
+    font-size: 2.5rem;
+    color: #333;
     margin-bottom: 20px;
     margin-top: 20px;
 }
 
-/* Nagłówki podstron (Czerwone tło, biały napis) */
 .subpage-header {
     background: #c62828;
     color: white;
@@ -118,12 +165,6 @@ section h1, section h2 {
 .subpage-header h1 {
     color: white !important;
     font-size: 3rem;
-}
-
-/* --- LISTY (USUWANIE KROPEK) --- */
-ul {
-    list-style: none;
-    padding: 0;
 }
 
 /* --- STOPKA --- */
@@ -138,120 +179,14 @@ footer {
 /* --- RESPONSYWNOŚĆ --- */
 @media (max-width: 800px) {
     nav { flex-direction: column; }
-    .nav-links { margin-top: 15px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .card, .card-link, a.gallery-item { width: 100%; }
-}
-/* --- POPRAWKA PRZYCISKÓW W HERO --- */
-
-.hero-btns {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-/* Podstawowy styl przycisku */
-.hero-btns .btn {
-    padding: 12px 28px;
-    text-decoration: none !important; /* Usuwa podkreślenie */
-    font-weight: bold;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    display: inline-block;
-    font-size: 1rem;
-}
-
-/* Biały przycisk z obramowaniem */
-.btn-outline-white {
-    background: transparent;
-    border: 2px solid white;
-    color: white !important; /* Wymusza biały kolor tekstu */
-}
-
-/* Efekt po najechaniu myszką */
-.btn-outline-white:hover {
-    background: white;
-    color: #c62828 !important; /* Tekst zmienia się na czerwony przy najechaniu */
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-/* --- GLOBALNA NAPRAWA LINKÓW-KAFELKÓW --- */
-
-/* Reset dla wszystkich linków, które mają udawać kafelki */
-a.card, a.card-link, a.gallery-item {
-    text-decoration: none !important; /* Brak podkreślenia */
-    color: inherit !important;        /* Kolor czarny/ciemny zamiast niebieskiego/fioletowego */
-    display: block;
-}
-
-/* Stan po kliknięciu (Visited) - blokujemy fiolet */
-a.card:visited, a.card-link:visited, a.gallery-item:visited {
-    color: inherit !important;
-}
-
-/* Styl dla kafelka Facebooka, aby był spójny */
-.btn-facebook-card {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    border-top: 5px solid #1877F2; /* Kolor Facebooka */
-    text-align: center;
-    transition: 0.3s;
-    display: block;
-    text-decoration: none !important;
-    color: #333 !important;
-}
-
-.btn-facebook-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-}
-/* --- GLOBALNY RESET LINKÓW-KAFELKÓW --- */
-a.card-link, a.btn, a.btn-outline-white {
-    text-decoration: none !important; /* Usuwa podkreślenie */
-    color: inherit !important;        /* Blokuje fioletowy kolor */
-}
-
-/* Styl dla białych przycisków na zdjęciu głównym */
-.btn-outline-white {
-    border: 2px solid white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    color: white !important;
-    display: inline-block;
-    transition: 0.3s;
-}
-
-.btn-outline-white:hover {
-    background: white;
-    color: #c62828 !important;
-}
-
-/* Centrowanie tekstów w kafelkach */
-.card, .card-link {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-/* --- POPRAWKA CENTROWANIA KAFELKÓW --- */
-
-.cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centruje kafelki w poziomie */
-    align-items: center;     /* Centruje kafelki w pionie (opcjonalnie) */
-    gap: 30px;
-    padding: 40px 0;
-    width: 100%;             /* Kontener musi zajmować całą szerokość */
-}
-
-/* Dodatkowe zabezpieczenie dla pojedynczego kafelka */
-.card, .card-link {
-    margin: 10px auto;       /* Automatyczne marginesy boczne centrują element */
-    display: block;
-    max-width: 320px;        /* Stała szerokość kafelka */
-    text-align: center;
+    .nav-links { 
+        margin-top: 15px; 
+        display: grid; 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px; 
+    }
+    .card, .card-link, a.gallery-item { 
+        width: 100%; 
+        max-width: 100%;
+    }
 }
