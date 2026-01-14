@@ -255,4 +255,20 @@ body > *:last-child div {
 p {
     color: inherit; /* Pozwala dziedziczyć kolor z rodzica, jeśli nie zadziała inaczej */
 }
+/* --- ODZYSKIWANIE NAPISU FACEBOOK W DZIAŁALNOŚCI --- */
+.facebook-card h3, 
+.facebook-card a, 
+[class*="facebook"] h3, 
+[class*="facebook"] a {
+    color: #1877F2 !important; /* Oficjalny niebieski Facebooka */
+    -webkit-text-fill-color: #1877F2 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* Jeśli pod kafelkiem jest zwykły tekst opisu */
+.card p, .card span {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+}
 
