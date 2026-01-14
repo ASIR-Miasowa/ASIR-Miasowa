@@ -271,4 +271,23 @@ p {
     color: #000000 !important;
     -webkit-text-fill-color: #000000 !important;
 }
+/* --- NAPRAWA KAFELKA FB W ZAKŁADCE O NAS --- */
+.container .facebook-card, 
+.container .card, 
+.container .card h3, 
+.container .card p {
+    color: #000000 !important; /* Przywraca czarny kolor tekstu */
+    -webkit-text-fill-color: #000000 !important;
+}
+
+.container .facebook-card h3 {
+    color: #1877F2 !important; /* Przywraca niebieski kolor dla nagłówka FB */
+    -webkit-text-fill-color: #1877F2 !important;
+}
+
+/* Jeśli cały kafelek jest linkiem */
+.container a.card, 
+.container a.facebook-card {
+    text-decoration: none !important;
+}
 
