@@ -262,3 +262,32 @@ header + div a,
 .gallery-section a:visited {
     color: #000000 !important;
 }
+/* --- POPRAWKA KOLORÓW DLA STOPKI I FACEBOOKA --- */
+
+/* 1. Przywrócenie jasnego koloru w stopce (Footer) */
+footer, 
+footer p, 
+footer a, 
+footer span {
+    color: #ccc !important; /* Szary/jasny kolor na ciemnym tle */
+    -webkit-text-fill-color: #ccc !important;
+    text-decoration: none !important;
+}
+
+/* 2. Przywrócenie niebieskiego koloru dla Facebooka (wszystkie strony) */
+.facebook-card h3, 
+.facebook-card a, 
+.facebook-card a h3,
+[class*="facebook"] h3, 
+[class*="facebook"] a {
+    color: #1877F2 !important; /* Oficjalny niebieski Facebooka */
+    -webkit-text-fill-color: #1877F2 !important;
+}
+
+/* 3. Naprawa przycisku na stronie Aktualności */
+.aktualnosci-btn, 
+[href*="facebook.com"] h3,
+.fb-link {
+    color: #1877F2 !important;
+    -webkit-text-fill-color: #1877F2 !important;
+}
