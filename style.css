@@ -242,3 +242,23 @@ header + .container a,
 header + section a {
     color: #000000 !important;
 }
+/* 1. Wymuszenie koloru czarnego dla linków powrotu w KAŻDEJ galerii */
+.subpage-header a, 
+header + div a,
+.gallery-section a {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important; /* Blokada dla Chrome */
+    text-decoration: none !important;
+}
+
+/* 2. Naprawa napisu "Turnieje ASIRU" - jeśli chcesz go mieć na czarno */
+.subpage-header h1 {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+}
+
+/* 3. Dodatkowa blokada dla stanu "odwiedzone" (to ten fiolet/biel) */
+.subpage-header a:visited, 
+.gallery-section a:visited {
+    color: #000000 !important;
+}
