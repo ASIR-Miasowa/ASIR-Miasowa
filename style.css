@@ -214,3 +214,31 @@ h2 a, h3 a, .gallery-grid a {
     color: #000000 !important;
     text-decoration: none !important;
 }
+/* --- OSTATECZNA NAPRAWA WIDOCZNOŚCI DLA PODGALERII --- */
+
+/* 1. Wymuszamy, aby napisy w sekcji "gallery-section" były CZARNE */
+.gallery-section h1, 
+.gallery-section h2, 
+.gallery-section a,
+.gallery-section .caption {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    text-decoration: none !important;
+    display: block;
+    margin: 10px auto;
+}
+
+/* 2. Jeśli link "Powrót" jest pod headerem, musi być czarny */
+body > a, 
+.container > a {
+    color: #000000 !important;
+    display: inline-block;
+    padding: 15px;
+    font-weight: bold;
+}
+
+/* 3. Naprawa specyficzna dla Turniejów i Pikniku (blokada białego dziedziczenia) */
+header + .container a,
+header + section a {
+    color: #000000 !important;
+}
