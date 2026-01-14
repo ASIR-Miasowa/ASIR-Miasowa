@@ -85,28 +85,39 @@
     const images = [
         'hero.png',
         '2025mikolajki2.jpg',
-        'hero3.jpg',
+        'futsal4.jpg',
         'piknik5.jpg',
         'turniejch8.jpg',
         'rower4.jpg'
     ]; 
 
+   // PRE-LOADING: Wczytywanie zdjęć do pamięci
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
     let currentIndex = 0;
     const heroSection = document.getElementById('dynamic-hero');
 
     function changeBackground() {
-        // Przejdź do kolejnego zdjęcia, po ostatnim wróć do pierwszego
         currentIndex = (currentIndex + 1) % images.length;
         
-        // Podmień tło, zachowując przyciemnienie (gradient), aby napisy były czytelne
-        heroSection.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${images[currentIndex]}')`;
+        // Tworzymy nową instancję obrazu, aby sprawdzić, czy jest gotowy
+        const nextImg = new Image();
+        nextImg.src = images[currentIndex];
+        
+        nextImg.onload = function() {
+            heroSection.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${images[currentIndex]}')`;
+        };
     }
 
-    // Ustawienie czasu zmiany na 5000ms (5 sekund)
-    setInterval(changeBackground, 5000);
+    // Zwiększamy czas do 6 sekund, aby zdjęcia zdążyły się wczytać
+    setInterval(changeBackground, 6000);
 </script>
 </body>
 </html>
+
 
 
 
