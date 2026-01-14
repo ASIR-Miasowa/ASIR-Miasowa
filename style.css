@@ -24,7 +24,7 @@ ul, li {
     padding: 0 20px;
 }
 
-/* --- NAWIGACJA (Układ poziomy) --- */
+/* --- NAWIGACJA (Gwarancja układu poziomego na PC) --- */
 nav {
     display: flex !important;
     justify-content: space-between !important;
@@ -39,6 +39,7 @@ nav {
 .logo-container .logo {
     height: 100px;
     width: auto;
+    transition: height 0.3s;
 }
 
 .nav-links {
@@ -53,7 +54,7 @@ nav {
     font-weight: bold;
 }
 
-/* --- SEKCJA HERO --- */
+/* --- SEKCJA HERO (DUŻA CZCIONKA) --- */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
                 url('hero.png') no-repeat center center;
@@ -65,6 +66,20 @@ nav {
     color: white;
 }
 
+.hero-text h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem) !important; 
+    color: white !important;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    font-weight: bold;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
 .hero-btns .btn {
     padding: 12px 28px;
     text-decoration: none !important;
@@ -73,26 +88,19 @@ nav {
     border: 2px solid white;
     color: white !important;
     display: inline-block;
-    transition: 0.3s;
 }
 
-.hero-btns .btn:hover {
-    background: white;
-    color: #c62828 !important;
-}
-
-/* --- KAFELKI I CENTROWANIE (NAPRAWA O NAS) --- */
+/* --- KAFELKI I CENTROWANIE --- */
 .cards, .gallery-grid {
     display: flex !important;
     flex-wrap: wrap !important;
-    justify-content: center !important; /* Centruje kafelki w poziomie */
-    align-items: center !important;
+    justify-content: center !important; 
+    align-items: stretch !important;
     gap: 30px;
     padding: 40px 0;
     width: 100% !important;
 }
 
-/* Każdy pojedynczy kafelek */
 .card, .card-link, a.gallery-item {
     background: white !important;
     width: 320px;
@@ -103,22 +111,28 @@ nav {
     flex-direction: column !important;
     align-items: center !important;
     overflow: hidden;
-    margin: 15px auto !important; /* "auto" wymusza środek, jeśli jest jeden kafelek */
+    margin: 10px;
     transition: 0.3s;
-    text-decoration: none !important; /* Usuwa podkreślenie */
-    color: #333 !important;           /* Usuwa fioletowy */
+    text-decoration: none !important;
+    color: #333 !important;
 }
 
-/* Całkowita blokada fioletu i podkreśleń dla wszystkich linków-kafelków */
+/* Wymuszenie środka dla pojedynczego kafelka (np. w O nas) */
+.cards .card-link:only-child, .cards .card:only-child {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Blokada fioletu i podkreśleń */
 .card-link, .card-link:visited, .card-link:hover, .card-link:active,
 a.gallery-item, a.gallery-item:visited, .card-link * {
     text-decoration: none !important;
     color: #333 !important;
 }
 
-.card:hover, .card-link:hover, a.gallery-item:hover {
-    transform: translateY(-10px);
-}
+/* Kolory tytułów */
+.card h3, .card-link h3 { color: #c62828 !important; margin: 15px 0; font-size: 1.5rem; }
+.facebook-card h3 { color: #1877F2 !important; }
 
 /* Galeria - Zdjęcia */
 a.gallery-item img {
@@ -128,34 +142,42 @@ a.gallery-item img {
     display: block;
 }
 
-.card, .card-link { padding: 30px; }
-
-/* Kolory tytułów w kafelkach */
-.card h3, .card-link h3 {
-    color: #c62828 !important; /* Czerwony domyślnie */
-    margin: 15px 0;
-    font-size: 1.5rem;
-}
-
-/* NIEBIESKI DLA FACEBOOKA */
-.facebook-card h3 {
-    color: #1877F2 !important; /* Wymuszony niebieski */
-}
-
-/* --- NAGŁÓWKI PODSTRON --- */
-.subpage-header { background: #c62828; color: white; padding: 60px 20px; }
-.subpage-header h1 { color: white !important; font-size: 3rem; }
-
 /* --- STOPKA --- */
-footer {
-    background: #222;
-    color: #ccc;
-    padding: 40px 20px;
-}
+footer { background: #222; color: #ccc; padding: 40px 20px; width: 100%; }
 
-/* --- MOBILNE --- */
+/* --- POPRAWKA MOBILNA (ŚCIŚNIĘCIE MENU) --- */
 @media (max-width: 800px) {
-    nav { flex-direction: column !important; }
-    .nav-links { flex-direction: column !important; margin-top: 15px; }
-    .card, .card-link, a.gallery-item { width: 100%; }
+    nav {
+        flex-direction: column !important;
+        padding: 10px 2%;
+    }
+
+    .logo-container .logo {
+        height: 60px; /* Zmniejszone logo na telefonie */
+    }
+
+    .nav-links {
+        display: grid !important; /* Układ siatki zamiast pionowej listy */
+        grid-template-columns: repeat(2, 1fr); /* Dwie kolumny obok siebie */
+        gap: 8px !important;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .nav-links li {
+        text-align: center;
+    }
+
+    .nav-links li a {
+        font-size: 0.9rem; /* Nieco mniejsza czcionka w menu */
+        padding: 5px;
+        display: block;
+        background: rgba(255, 255, 255, 0.1); /* Delikatne tło dla czytelności */
+        border-radius: 4px;
+    }
+
+    .card, .card-link, a.gallery-item {
+        width: 100%;
+        margin: 10px 0 !important;
+    }
 }
