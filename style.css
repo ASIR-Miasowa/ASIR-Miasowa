@@ -23,7 +23,7 @@ ul, li {
     padding: 0 20px;
 }
 
-/* --- NAWIGACJA (Czerwone tło, białe napisy) --- */
+/* --- NAWIGACJA --- */
 nav {
     display: flex !important;
     justify-content: space-between !important;
@@ -47,12 +47,12 @@ nav {
 }
 
 .nav-links li a {
-    color: #fff !important; /* Napisy w menu zawsze białe */
+    color: #fff !important;
     text-decoration: none !important;
     font-weight: bold;
 }
 
-/* --- SEKCJA HERO (Białe napisy na zdjęciu) --- */
+/* --- SEKCJA HERO --- */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
                 url('hero.png') no-repeat center center;
@@ -66,28 +66,27 @@ nav {
 
 .hero-text h1 {
     font-size: clamp(2.5rem, 8vw, 4.5rem) !important; 
-    color: #fff !important; /* Napis główny biały */
+    color: #fff !important;
     text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
     font-weight: bold;
 }
 
-.hero-btns .btn {
-    padding: 12px 28px;
-    text-decoration: none !important;
-    font-weight: bold;
-    border-radius: 5px;
-    border: 2px solid #fff;
+/* --- NAGŁÓWKI (Wymuszenie koloru czarnego na całej stronie) --- */
+h1, h2, h3 {
+    color: #000 !important; /* Wszystkie nagłówki domyślnie czarne */
+}
+
+/* Wyjątek dla nagłówków na czerwonym tle */
+nav a, .subpage-header h1, .hero-text h1 {
     color: #fff !important;
-    display: inline-block;
-    transition: 0.3s;
 }
 
-.hero-btns .btn:hover {
-    background: #fff;
-    color: #c62828 !important;
+/* Wyjątek dla Facebooka */
+.facebook-card h3 {
+    color: #1877F2 !important;
 }
 
-/* --- KAFELKI (Czarno-biała estetyka) --- */
+/* --- KAFELKI --- */
 .cards, .gallery-grid {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -101,7 +100,7 @@ nav {
     width: 320px;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    border-top: 5px solid #c62828; /* Czerwony pasek akcentowy zostaje */
+    border-top: 5px solid #c62828;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -110,31 +109,28 @@ nav {
     text-decoration: none !important;
 }
 
-/* Usunięcie fioletu i wymuszenie czarnego tekstu w kafelkach */
-.card, .card-link, .card-link:visited, a.gallery-item, a.gallery-item:visited, .card-link * {
+.card *, .card-link *, a.gallery-item * {
     text-decoration: none !important;
-    color: #000 !important; /* Wszystkie teksty w kafelkach czarne */
+    color: #000 !important;
 }
 
-/* Wyjątek: Kolor nagłówków H3 w kafelkach */
-.card h3, .card-link h3 {
-    color: #000 !important; /* Napisy "Piłka nożna", "O nas" itp. czarne */
-    margin: 15px 0;
-    font-size: 1.5rem;
+/* --- KONTAKT (Specyficzne ustawienia) --- */
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: left;
+    margin-bottom: 40px;
 }
 
-/* Specjalny kolor dla Facebooka */
-.facebook-card h3 {
-    color: #1877F2 !important; /* Tylko Facebook niebieski */
+.contact-info {
+    flex: 1;
+    min-width: 300px;
 }
 
-/* Centrowanie pojedynczego kafelka (np. w O nas) */
-.cards .card-link:only-child, .cards .card:only-child {
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
+/* --- GALERIA I PODSTRONY --- */
+.subpage-header { background: #c62828; color: #fff; padding: 60px 20px; }
 
-/* --- GALERIA I NAGŁÓWKI PODSTRON --- */
 a.gallery-item img {
     width: 100%;
     height: 250px;
@@ -142,25 +138,9 @@ a.gallery-item img {
     display: block;
 }
 
-.subpage-header {
-    background: #c62828;
-    color: #fff;
-    padding: 60px 20px;
-}
+footer { background: #222; color: #ccc; padding: 40px 20px; }
 
-.subpage-header h1 {
-    color: #fff !important; /* Napis na czerwonym pasku podstron biały */
-    font-size: 3rem;
-}
-
-/* --- STOPKA --- */
-footer {
-    background: #222;
-    color: #ccc;
-    padding: 40px 20px;
-}
-
-/* --- MOBILNE (Ściśnięte menu 2 kolumny) --- */
+/* --- RESPONSYWNOŚĆ --- */
 @media (max-width: 800px) {
     nav { flex-direction: column !important; padding: 10px 2%; }
     .logo-container .logo { height: 60px; }
@@ -169,7 +149,6 @@ footer {
         grid-template-columns: repeat(2, 1fr);
         gap: 8px !important;
         margin-top: 10px;
-        width: 100%;
     }
     .nav-links li a { font-size: 0.9rem; padding: 5px; display: block; background: rgba(255, 255, 255, 0.1); border-radius: 4px; }
     .card, .card-link, a.gallery-item { width: 100%; margin: 10px 0 !important; }
