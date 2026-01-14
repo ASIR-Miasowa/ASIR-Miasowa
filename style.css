@@ -295,3 +295,53 @@ footer span {
     /* Zachowaj swoje obecne style dla .hero i dopisz poniższą linię: */
     transition: background-image 1s ease-in-out !important; 
 }
+/* Styl przycisku hamburgera - domyślnie ukryty */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: white; /* Kolor kresek */
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* WIDOK MOBILNY - poniżej 800px szerokości ekranu */
+@media (max-width: 800px) {
+    .menu-toggle {
+        display: flex !important; /* Pokazuje hamburgera */
+    }
+
+    .nav-links {
+        display: none !important; /* Ukrywa listę linków */
+        flex-direction: column !important;
+        position: absolute;
+        top: 70px; /* Wysokość Twojego paska nawigacji */
+        left: 0;
+        width: 100%;
+        background-color: #c62828; /* Czerwone tło menu */
+        padding: 20px 0;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    /* Klasa dodawana przez JavaScript po kliknięciu */
+    .nav-links.active {
+        display: flex !important;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+}
